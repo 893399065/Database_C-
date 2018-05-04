@@ -23,7 +23,13 @@ namespace WindowsFormsApp1
             SqlConnection conn = new SqlConnection(mystr);
             conn.Open();
             if (conn.State == ConnectionState.Open)
+            {
                 MessageBox.Show("成功连接到数据库");
+                SqlCommand mycmd = new SqlCommand("SELECT  [Name] FROM StudentInform", conn);
+                textBox1.Text = mycmd.ExecuteScalar().ToString();
+    
+            }
+                
             else
                 MessageBox.Show("不能连接到数据库");
             conn.Close();
