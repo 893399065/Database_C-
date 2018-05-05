@@ -24,8 +24,7 @@ namespace WindowsFormsApp3
             string connStr = "server=www.homeassistant.top;user=mysql;database=HRM;password=654321;SslMode=none";
             MySqlConnection sqlConn = new MySqlConnection(connStr);
             try
-            {
-                
+            {              
                 MySqlCommand sqlCmd = new MySqlCommand();
                 sqlCmd.Connection = sqlConn;
                 sqlCmd.CommandText = "select * from StudentInform";
