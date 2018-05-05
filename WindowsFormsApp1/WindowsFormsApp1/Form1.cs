@@ -19,20 +19,26 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string mystr = "Data Source=.;Initial Catalog=studentDB;Integrated security=SSPI";
-            SqlConnection conn = new SqlConnection(mystr);
-            conn.Open();
-            if (conn.State == ConnectionState.Open)
+            string connStr = "server=www.homeassistant;user=root;database=oauth2;port=3306;password=1d82d45c42574e03;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
             {
-                MessageBox.Show("成功连接到数据库");
-                SqlCommand mycmd = new SqlCommand("SELECT  [Name] FROM StudentInform", conn);
-                textBox1.Text = mycmd.ExecuteScalar().ToString();
-    
+                textbox_log.Text += "Connecting to MySQL...\r\n";
+                conn.Open();
+                FileInfo file = new FileInfo("D:/endb.sql");  //filename是sql脚本文件路径。  
+                string sql = file.OpenText().ReadToEnd();
+                MySqlScript script = new MySqlScript(conn);
+                script.Query = sql;
+                int count = script.Execute();
+                textbox_log.Text += "Executed " + count + " statement(s)\r\n";
+                textbox_log.Text += "Delimiter: " + script.Delimiter + "\r\n";
+                //textbox_log.Text += "Query: " + script.Query + "\r\n";  
             }
-                
-            else
-                MessageBox.Show("不能连接到数据库");
+            catch (Exception ex)
+            {
+                textbox_log.Text += ex.ToString();
+            }
             conn.Close();
+            textbox_log.Text += "Execute Successfully.";
         }
-    }
 }

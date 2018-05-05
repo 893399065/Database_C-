@@ -21,21 +21,18 @@ namespace WindowsFormsApp3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string constr = "server=www.homeassistant.top;Uid=root;password=1d82d45c42574e03;Database=oauth2;SslMode=None";
-            MySqlConnection myconn = new MySqlConnection(constr);
+            string connStr = "server=www.homeassistant.top;user=root;database=oauth2;port=3306;password=1d82d45c42574e03;SslMode=none";
+            MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
-                myconn.Open();
+                conn.Open();
                 MessageBox.Show("连接成功");
-                string strcmd = "Select * From oauth_access_tokens";
-                MySqlCommand mysqlcmd = new MySqlCommand(strcmd, myconn);
-                textBox1.Text = mysqlcmd.ExecuteScalar().ToString();
-
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            conn.Close();
         }
 
        
