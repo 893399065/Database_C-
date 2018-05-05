@@ -37,7 +37,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(242, 403);
+            this.button1.Location = new System.Drawing.Point(351, 396);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -57,7 +57,7 @@
             // listView1
             // 
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(338, 59);
+            this.listView1.Location = new System.Drawing.Point(351, 48);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(121, 97);
             this.listView1.TabIndex = 2;
@@ -65,10 +65,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(369, 262);
+            this.textBox1.Location = new System.Drawing.Point(351, 198);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 84);
+            this.textBox1.Size = new System.Drawing.Size(371, 156);
             this.textBox1.TabIndex = 3;
             // 
             // Form1
